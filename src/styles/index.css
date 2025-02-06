@@ -10,3 +10,15 @@
     import 'relative/path/to/stylesheet.scss';
 
 */
+
+
+.eliminar-btn{
+    display: none;
+}
+.list-group-item:hover .eliminar-btn {
+    display: block;
+    
+
+  }
+
+
