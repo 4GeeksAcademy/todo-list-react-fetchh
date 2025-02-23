@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-const API_URL = "https://playground.4geeks.com/todo/users/carolono";
+const API_URL = "https://playground.4geeks.com/todo/users/adler";
 
 //include images into your bundle
 import rigoImage from "../../img/rigo-baby.jpg";
@@ -8,28 +8,29 @@ import rigoImage from "../../img/rigo-baby.jpg";
 const Home = () => {
 	const [todo, setTodo] = useState([]);
 	const [task, setTask] = useState({ label: "" });
+	console.log("holA TODO",todo)
       
 	useEffect(() => {
-	  fetchTasks();
-	}, []);
+	  fetchTasks();   
+	}, []);    
   
 	const fetchTasks = async () => {
 	  try {
-		const response = await fetch("https://playground.4geeks.com/todo/users/carolono");
+		const response = await fetch("https://playground.4geeks.com/todo/users/adler");
 		const data = await response.json();
 		setTodo(data.todos);
 	  } catch (error) {
 		console.error("Error fetching tasks", error);
 	  }
-	};
+	};  
   
 	const addTask = async () => {
-	  if (!task.label.trim()) return;
+	  if (!task.label.trim()) return;          
 	  try {
-		await fetch("https://playground.4geeks.com/todo/todos/carolono", {
+		await fetch("https://playground.4geeks.com/todo/todos/adler", {
 		  method: "POST",
 		  headers: { "Content-Type": "application/json" },
-		  body: JSON.stringify(task)
+		  body: JSON.stringify(task)          
 		});
 		setTask({ label: "" });
 		fetchTasks();
@@ -89,7 +90,7 @@ const Home = () => {
 				</button>
 			  </li>
 			))}
-		  </ul>
+		  </ul> 
 		</form>
 		<span>
 		  {todo?.length} Items left <i className="bi bi-x-circle-fill"></i>
